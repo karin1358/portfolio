@@ -1,0 +1,97 @@
+@charset "utf-8";
+*{
+	margin:0;
+	color:#555555;
+	list-style: none;
+	box-sizing: border-box;
+}
+/*.menu-trigger,
+.menu-trigger span {
+  display: inline-block;
+  transition: all .4s;
+  box-sizing: border-box;
+  display:block;
+  float: right;
+}
+.menu-trigger{
+	margin-top:20px;
+	padding: 20px;
+	/*height: 55px;*/
+	/*background-color: #F4AD71;*/
+/*}*/
+
+.navbar{
+	display: none;
+}
+.top-logo{
+	/*height: 180px;
+	width: 200px;*/
+}
+section{
+	
+	overflow: hidden;
+}
+header ul{
+	padding-left: 5% !important;
+}
+header img{
+margin-left: 5px;
+}
+.wrapper p{
+	font-size: 20px;
+}
+.contents p{
+	padding: 22px 0;
+}
+#menu ul,#menu h2{
+	display: block;
+	position: fixed;
+	right: 0;
+	top: 0;
+}
+#menu ul,#menuButton{
+	display: block;
+}
+/*----------contents----------*/
+.cont1{
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.box{
+	padding-left: 400px;
+}
+.box-img img{
+	height: auto;
+	width: 380px;
+	/*left: -10px;*/
+}
+.inner{
+	padding: 50px 0 0 20px;
+	width:90%;
+}
+.pre-footer ul{
+	margin-bottom: 5px;
+}
+.twittter-timeline{
+
+}
+.pre-menu,.twitter{
+	display: none;
+}
+.menu2 {
+	text-align: center;
+	margin: 0;
+}
+.pre-footer ul{
+	padding:0;
+	width: 100%; 
+	margin-left: 20px;
+}
+.sub-content h3{
+	font-size: 16px;
+}
+footer p{
+	font-size: 10px !important;
+	/*font-weight: normal;*/
+}
