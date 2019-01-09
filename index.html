@@ -1,55 +1,4 @@
-<!-- <?php
-$page_flag = 0;
-if( !empty($_POST['btn_confirm']) ) {
-    $page_flag = 1;
-} elseif( !empty($_POST['btn_submit']) ) {
-    $page_flag = 2;
-    // 変数とタイムゾーンを初期化
-    $header = null;
-    $auto_reply_subject = null;
-    $auto_reply_text = null;
-    $admin_reply_subject = null;
-    $admin_reply_text = null;
-    date_default_timezone_set('Asia/Tokyo');
 
-    // ヘッダー情報を設定
-    $header = "MIME-Version: 1.0\n";
-    $header .= "From: REVIA </*メールアドレス*/>\n";
-    $header .= "Reply-To: REVIA </*メールアドレス*/>\n";
-
-    // 件名を設定
-    $auto_reply_subject = 'お問い合わせありがとうございます。';
-
-    // 本文を設定
-    $auto_reply_text = "この度は、お問い合わせ頂き誠にありがとうございます。
-下記の内容でお問い合わせを受け付けました。\n\n";
-    $auto_reply_text .= "お問い合わせ日時：" . date("Y-m-d H:i") . "\n";
-    $auto_reply_text .= "氏名：" . $_POST['your_name'] . "\n";
-    $auto_reply_text .= "メールアドレス：" . $_POST['email'] . "\n";
-    $auto_reply_text .= "電話番号：" . $_POST['tell'] . "\n";
-    $auto_reply_text .= "件名：" . $_POST['title'] . "\n";
-    $auto_reply_text .= "お問い合せ内容：" . $_POST['inquiry'] . "\n\n";
-    $auto_reply_text .= 'REVIA';
-
-    // メール送信
-    mb_send_mail( $_POST['email'], $auto_reply_subject, $auto_reply_text);
-
-    // 運営側へ送るメールの件名
-    $admin_reply_subject = "お問い合わせを受け付けました";
-    
-    // 本文を設定
-    $admin_reply_text = "下記の内容でお問い合わせがありました。\n\n";
-    $admin_reply_text .= "お問い合わせ日時：" . date("Y-m-d H:i") . "\n";
-    $admin_reply_text .= "氏名：" . $_POST['your_name'] . "\n";
-    $admin_reply_text .= "メールアドレス：" . $_POST['email'] . "\n";
-    $admin_reply_text .= "電話番号：" . $_POST['tell'] . "\n";
-    $admin_reply_text .= "件名：" . $_POST['title'] . "\n";
-    $admin_reply_text .= "お問い合せ内容：" . $_POST['inquiry'] . "\n\n";
-
-    // 運営側へメール送信
-    mb_send_mail( '/*メールアドレス*/', $admin_reply_subject, $admin_reply_text, $header);
-    }
-?> -->
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
@@ -256,72 +205,9 @@ if( !empty($_POST['btn_confirm']) ) {
 <section>
 <div class="rgba3">
     <div class="body4">
-<!--    お問い合わせ　　　-->
-    <div class="info inner" id="info">
-       <div class="container">
-        <!-- 確認ページ -->
-        <?php if( $page_flag === 1 ): ?>
-
-            <form method="post" action="index.php#info" id="contact" class="form2">
-                <div class="info-title">お問い合せ内容の確認</div>
-                <div class="element_wrap">
-                    <label>お名前</label>
-                    <p><?php echo $_POST['your_name']; ?></p>
-                </div>
-                <div class="element_wrap">
-                    <label>ふりがな</label>
-                    <p><?php echo $_POST['phonetic']; ?></p>
-                </div>
-                <div class="element_wrap">
-                    <label>メールアドレス</label>
-                    <p><?php echo $_POST['email']; ?></p>
-                </div>
-                <div class="element_wrap">
-                    <label>お問い合せ内容</label>
-                    <p><?php echo $_POST['inquiry']; ?></p>
-                </div>
-                <div class="btn2">
-                <input type="submit" name="btn_back" value="BACK" id="submit" style="color: #4d4d4d; border-radius: 50px; margin: 30px 310px;">
-                <input type="submit" name="btn_submit" value="SEND" id="submit2" style="color: #4d4d4d; border-radius: 50px; margin: 30px 310px;">
-                </div>
-                <input type="hidden" name="your_name" value="<?php echo $_POST['your_name']; ?>">
-                <input type="hidden" name="email" value="<?php echo $_POST['email']; ?>">
-            </form>
-
-            <!-- サンクスページ -->
-            <?php elseif( $page_flag === 2 ): ?>
-            <p style="text-align: center; font-size: 25px; color: white;">送信が完了しました。</p>
-
-            <!-- お問い合せ -->
-        <?php else: ?>
-            <div class="contact">
-            <h5>CONTACT</h5>
-            <p>お問い合わせから1営業以内に返信させていただきます。</p>
-            </div>
-            <form method="post" action="index.php#info">
-                <div class="element_wrap_hraf">
-                   <div class="info-box-1">
-                       <!-- <label>NAME*</label> -->
-                        <input placeholder="NAME" type="text" name="your_name" value="">
-                   </div>
-                </div>
-                <div class="element_wrap">
-                   <div class="info-box">
-                       <!-- <label>EMAIL*</label> -->
-                        <input placeholder="EMAIL" type="text" name="email" value=""><br>
-                   </div>
-                    <div class="info-main">
-                        <!-- <label>CONTENTS*</label> -->
-                        <textarea placeholder="CONTENTS" name="inquiry" id="" cols="90" rows="10" class="inleft"></textarea>
-                    </div>
-                </div>
-                <div class="confirmation">
-                    <input type="submit" name="btn_confirm" value="SEND" id="submit3" style="color:#999999; border-radius: 5px;">
-                </div>
-            </form>
-        <?php endif; ?>
-    </div>        
-    </div>
+	
+	    <h5>CONTACT</h5>
+	    <a href="danceafrolove22@gmail.com?subject=問い合わせ&amp;body=ご記入ください">メールはこちらへ</a>
     </div>
     </div>
 </section>
