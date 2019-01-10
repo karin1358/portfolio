@@ -147,11 +147,13 @@ header{
 	/*position: fixed;*/
 }
 .header-color{
-	background:rgba(255,255,255,0.4);
+	background-color:#b3b3b3;
 	width: 100%;
 }
 .pre-header{
-	background-color: black !important;
+	height:100%;
+  background:rgba(255,255,255,0.5);
+	
 }
 .header-color a{
 	color: white;
