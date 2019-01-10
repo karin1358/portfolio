@@ -144,7 +144,7 @@ i p{
 }
 /*ーーーーーーーーーーーーーーーーーーーーー*/
 header{
-	/*position: fixed;*/
+	position: fixed;
 }
 .header-color{
 	background-color:#b3b3b3;
