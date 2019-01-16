@@ -1,4 +1,55 @@
+<!-- <?php
+$page_flag = 0;
+if( !empty($_POST['btn_confirm']) ) {
+    $page_flag = 1;
+} elseif( !empty($_POST['btn_submit']) ) {
+    $page_flag = 2;
+    // 変数とタイムゾーンを初期化
+    $header = null;
+    $auto_reply_subject = null;
+    $auto_reply_text = null;
+    $admin_reply_subject = null;
+    $admin_reply_text = null;
+    date_default_timezone_set('Asia/Tokyo');
 
+    // ヘッダー情報を設定
+    $header = "MIME-Version: 1.0\n";
+    $header .= "From: REVIA </*メールアドレス*/>\n";
+    $header .= "Reply-To: REVIA </*メールアドレス*/>\n";
+
+    // 件名を設定
+    $auto_reply_subject = 'お問い合わせありがとうございます。';
+
+    // 本文を設定
+    $auto_reply_text = "この度は、お問い合わせ頂き誠にありがとうございます。
+下記の内容でお問い合わせを受け付けました。\n\n";
+    $auto_reply_text .= "お問い合わせ日時：" . date("Y-m-d H:i") . "\n";
+    $auto_reply_text .= "氏名：" . $_POST['your_name'] . "\n";
+    $auto_reply_text .= "メールアドレス：" . $_POST['email'] . "\n";
+    $auto_reply_text .= "電話番号：" . $_POST['tell'] . "\n";
+    $auto_reply_text .= "件名：" . $_POST['title'] . "\n";
+    $auto_reply_text .= "お問い合せ内容：" . $_POST['inquiry'] . "\n\n";
+    $auto_reply_text .= 'REVIA';
+
+    // メール送信
+    mb_send_mail( $_POST['email'], $auto_reply_subject, $auto_reply_text);
+
+    // 運営側へ送るメールの件名
+    $admin_reply_subject = "お問い合わせを受け付けました";
+    
+    // 本文を設定
+    $admin_reply_text = "下記の内容でお問い合わせがありました。\n\n";
+    $admin_reply_text .= "お問い合わせ日時：" . date("Y-m-d H:i") . "\n";
+    $admin_reply_text .= "氏名：" . $_POST['your_name'] . "\n";
+    $admin_reply_text .= "メールアドレス：" . $_POST['email'] . "\n";
+    $admin_reply_text .= "電話番号：" . $_POST['tell'] . "\n";
+    $admin_reply_text .= "件名：" . $_POST['title'] . "\n";
+    $admin_reply_text .= "お問い合せ内容：" . $_POST['inquiry'] . "\n\n";
+
+    // 運営側へメール送信
+    mb_send_mail( '/*メールアドレス*/', $admin_reply_subject, $admin_reply_text, $header);
+    }
+?> -->
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
@@ -9,6 +60,7 @@
      <link rel="stylesheet" type="text/css" href="./style.css">
      <link rel="stylesheet" type="text/css" href="./stylesheet.css">
 	 <link rel="stylesheet" type="text/css" href="./responsive.css" media="screen and (max-width:500px)"> 
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.min.css">
 	 <!-- <link rel="stylesheet" type="text/css" href="./ipad.css" media="screen and (max-width:768px)"> -->
 	 <!-- -----bootstrap------ -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -20,11 +72,14 @@
 <link rel="stylesheet" href="swiper.min.css">
 </head>
 <body>
-<div class="pre-header animated fadeInDown">
+  <div class="over">
 <header class="header-color">
+<div class="pre-header animated fadeInDown">
     <div class="inner">
-	<h1>KARIN</h1>
-	<div class="hide-small">
+	<div class="header-left">
+  <h1>KARIN</h1>
+  </div>
+	<div class="hide-small header-right">
 		<nav>
 		<ul class="">
 			<li><a href="#abuot">About me</a></li>
@@ -34,28 +89,26 @@
 		</ul>
 		</nav>
 	</div>
+    </div>
+</div>
 
 <div id="nav-drawer">
       <input id="nav-input" type="checkbox" class="nav-unshown">
       <label id="nav-open" for="nav-input"><span></span></label>
       <label class="nav-unshown" id="nav-close" for="nav-input"></label>
       <div id="nav-content">
-      <div id="nav-content-rgba">
-          <nav>
-        <ul class="">
-            <li><a href="#about">About me</a></li>
-            <li><a href="#work">SERVICE / WORK</a></li>
-            <li><a href="#price">PRICE</a></li>
-            <li><a href="#portfolio">PORTFOLIO</a></li>
-            <li><a href="#contact">CONTACT</a></li>
-        </ul>
-        </nav>
-      </div>
+    <nav>
+    <ul class="">
+      <li><a href="#abuot">About me</a></li>
+      <li><a href="#work">SERVICE / WORK</a></li>
+      <li><a href="#portfolio">PORTFOLIO</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+    </nav>
+        
       </div>
   </div>
-    </div>
     </header>
-	
 <!-- ------------------------- -->
 <!-- <div class="inner"> -->
     <div id="particles-js">
@@ -130,18 +183,18 @@
 <section>
    <div class="body7">
     <div class="inner">
-            <h5>SERVICE / WORK</h5>
+            <h5 id="work">SERVICE / WORK</h5>
         <div>
-            <div class="icon-back" id="icon-first"><i class="fas fa-desktop"><p>ホームページ制作</p></i></div>
+            <div class="icon-back" id="icon-first"><div id="rgba-icon"><i class="fas fa-desktop"><p>ホームページ制作</p></i></div></div>
             <p style="margin:1rem 0 3rem">デザインからHTML, CSS, JavaScriptのコーディングまで
                 <br>ウェブサイト制作全般に対応します。</p>
         </div>
         <div>
-            <div class="icon-back" id="icon-second"><i class="fab fa-adversal" style="font-weight: 13px;"><p>バナー制作</p></i></div>
+            <div class="icon-back" id="icon-second"><div id="rgba-icon2"><i class="fab fa-adversal" style="font-weight: 13px;"><p>バナー制作</p></i></div></div>
             <p style="margin:1rem 0 3rem">広告、宣伝効果を高めるデザインのバナーをお届けします。</p>
         </div>
         <div>
-            <div class="icon-back" id="icon-third"><i class="far fa-building"><p>コーポレートサイト</p></i></div>
+            <div class="icon-back" id="icon-third"><div id="rgba-icon3"><i class="far fa-building"><p>コーポレートサイト</p></i></div></div>
             <p style="margin:1rem 0 3rem">会社のイメージに沿った会社概要やお知らせの掲載、
                 <br>所在地地図の一致などに対応します。
                 <br>入念なヒアリングによりハイクオリティなコーポレートサイトを実現させます。</p>
@@ -149,52 +202,35 @@
     </div>
    </div>  
 </section>
-<section>
-<div class="rgba2">
-	<div class="inner">
+<!-- <section> -->
+<!-- <div class="rgba2"> -->
+	<!-- <div class="inner"> -->
         <h5 id="portfolio">PORTFOLIO</h5>
-		<div class="swiper-container">
-			<!-- require wrapper -->
-			<div class="swiper-wrapper">
-				<div class="swiper-slide" style="background-image:url(./img/isara.png);
-					background-repeat: repeat;
-					width:100%;
-					height: 500px;
-					background-size: cover;
-					background-position: center center;">
-					
-					</div>
-					<div class="swiper-slide"style="
-					background-image: url('./img/team.png');
-					background-repeat: repeat;
-					width: 100%;
-					height: 500px;
-					background-size: cover;
-					background-position: center center;"></div>
-					<div class="swiper-slide"style="
-					background-image: url('./img/peter.png');
-					background-repeat: repeat;
-					height: 500px;
-					width: 900px;/* 1261px*/
-					background-size: cover;
-					background-position: center center;"></div>
-					<div class="swiper-slide"style="
-					background-image: url('./img/simple.png');
-					background-repeat: repeat;
-					height: 500px;
-					width: 900px;/* 1261px*/
-					background-size: cover;
-					background-position: center center;"></div>
-				</div>
-			<div class="swiper-button-prev"></div>
-		    <div class="swiper-button-next"></div>
-			</div>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="./img/isara.png" alt="Swiper01">
+      </div>
+      <div class="swiper-slide">
+        <img src="./img/simple.png" alt="Swiper01">
+      </div>
+      <div class="swiper-slide">
+        <img src="./img/peter.png" alt="Swiper01">
+      </div>
+      <div class="swiper-slide">
+        <img src="./img/team.png" alt="Swiper01">
+      </div>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
             <div class="btn-arrow">
 		<a href="https://drive.google.com/drive/folders/1tJvYS_8hnJR7OGq6MtuQSfXj9BcmfAyu?usp=sharing" class="btn btn-lg">MORE</a>
         </div>
-	</div>
-    </div>
-</section>
+	<!-- </div> -->
+<!-- </div> -->
+
+<!-- </section> -->
 <section>
 	<div class="body2">
 		<div class="inner">
@@ -205,29 +241,30 @@
 <section>
 <div class="rgba3">
     <div class="body4" style="height:500px; padding:100px;">
-	<div class="inner">
-	    
-	    <h5>CONTACT</h5>
-		<p style="margin-top:1.8rem;">作成の依頼・ご相談（無料）などお気軽にご連絡ください</p>
-		<i class="far fa-envelope" style="color:white; font-size:2rem;height:0; width:40px;"></i>
-	    <a href="mailto:danceafrolove22@gmail.com?subject=お問い合わせ">danceafrolove22@gmail.com</a>
-		<p>翌営業日までに返信いたします。</p>
-	</div>
+  <div class="inner">
+      
+      <h5>CONTACT</h5>
+    <p style="margin-top:1.8rem;">作成の依頼・ご相談（無料）などお気軽にご連絡ください</p>
+    <i class="far fa-envelope" style="color:white; font-size:2rem;height:0; width:40px;"></i>
+      <a href="mailto:danceafrolove22@gmail.com?subject=お問い合わせ">danceafrolove22@gmail.com</a>
+    <p>翌営業日までに返信いたします。</p>
+  </div>
     </div>
     </div>
 </section>
 <footer>
     <p>(c) 2018 Karin Okajima ALL rights reserved</p>
 </footer>
+</div>
 <!-- -------------------------------- -->
 
- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
     <script src="swiper.min.js"></script>
  <!-- <script src="./slideout-1.0.1/dist/slideout.min.js"></script> -->
 <!-- <script src="./smooth-scroll.min.js"></script> -->
 
-<script src="./particles.js"></script>
+<script src="./particles.js-master/particles.js"></script>
 <script src="./setting.js"></script>
 <script type="text/javascript">
 
@@ -254,12 +291,14 @@ $(window).on('load scroll', function(){
   });
 
 });
-  var swiper = new Swiper('.swiper-container', {
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    }
-  });
+var mySwiper = new Swiper('.swiper-container', {
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+});
+
+
 
 $(function(){
    // #で始まるアンカーをクリックした場合に処理
