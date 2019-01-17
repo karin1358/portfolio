@@ -325,6 +325,10 @@ header>.inner{
   z-index: 60;
   overflow: hidden;
 }
+.body4>.inner{
+	height:300px;
+	
+}
 .rgba3{
 	/*background:rgba(255,255,255,0.3);*/
 }
