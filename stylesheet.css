@@ -6,9 +6,14 @@
 	box-sizing: border-box;
 	text-decoration: none !important;
 	/*overflow: scroll;*/
+  /*font-family: 'Courier New';*/
+  font-family: 'Hiragino Mincho Pro';
 }
-div{
+.over{
 		overflow: hidden;
+}
+.inner{
+  overflow: hidden;
 }
 canvas{
   /*max-width: 950px;*/
@@ -36,7 +41,7 @@ background-image:url("./img/darkflower.jpg");
 	top: 50%;
 	left: 35%;
 	color: white;
-	text-shadow: 4px 2px 4px #cccccc;
+	text-shadow: 3px 2px 3px #cccccc;
 }
 .inner{
 	max-width: 950px;
@@ -68,6 +73,10 @@ th{
 button{
 	background-color: #f4b4d0;
 	box-shadow: 4px 4px 4px 4px #777777;
+}
+.button-arrow{
+  margin:0 auto;
+  width: 100%;
 }
 .btn-arrow :hover{
 	background-color:blue;
@@ -115,7 +124,7 @@ i{
 	width: 200px;
 	border-radius: 50%;
 	position: relative;
-    top: 30%;
+    top: 50px;
     /*left: 50%;*/
     /*margin-top: .5em;*/
 }
@@ -131,44 +140,67 @@ i p{
     margin:0 auto;
 }
 #icon-first{
-	background-color: #a7366d;
+	/*background-color: #a7366d;*/
 }
 #icon-second{
-	background-color: #486a00;
+	/*background-color: #486a00;*/
 }
 #icon-third{
-	background-color: #00426d;
+	/*background-color: #00426d;*/
 }
-.back-opa{
-	background:rgba(255,255,255,0.5);
+#rgba-icon{
+  background-color:rgba(205,235,255,0.4);
+  border-radius: 50%;
 }
+#rgba-icon2{
+  background-color:rgba(255,205,255,0.4);
+  border-radius: 50%;
+}
+#rgba-icon3{
+  background-color:rgba(255,235,205,0.4);
+  border-radius: 50%;
+}
+
 /*ーーーーーーーーーーーーーーーーーーーーー*/
 header{
-	position: fixed;
+background-color:gray;
+  /*background:rgba(255,255,255,0.9);*/
 }
 .header-color{
-	background-color:#b3b3b3;
 	width: 100%;
+  height: 100px;
 }
 .pre-header{
-	height:100%;
-  background:rgba(255,255,255,0.5);
-	
+  position: relative;
+	height: 100%;
+  background:rgba(255,255,255,0.2);
 }
 .header-color a{
 	color: white;
 }
+.header-left{
+  float: left;
+}
+.hide-small{
+  position: relative;
+  right: 0;
+  float: right;
+}
 header>.inner{
 	padding:0;
 }
-header>.inner,header h1{
+.pre-header>.inner,header h1{
 	/*background-color: #1a1a1a !important;*/
 	display: flex !important;
 	justify-content: space-between;
 	height: 80px;
+  /*float: left;*/
 	line-height: 80px;
 	vertical-align: middle;
 	color: white;
+}
+.pre-header ul{
+  float: right;
 }
 .header-color li{
 	display: inline-block;
@@ -328,44 +360,41 @@ footer p{
 .swiper-button-prev{
 	color: black;
 }
-
-
-.show-small{
-	display: block;
+.swiper-container{
+  /*height: 300px;*/
+  height: auto;
+  width: 80% !important;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  width: 32px;
+  height: 32px;
+  margin-top: -16px;
+}
+.swiper-button-prev {
+    background: url(https://haniwaman.com/wp-content/uploads/2018/05/swiper3.png) no-repeat center center / contain;
+}
+.swiper-button-next {
+    background: url(https://haniwaman.com/wp-content/uploads/2018/05/swiper4.png) no-repeat center center / contain;
 }
 /*ヘッダーまわりはサイトに合わせて調整してください*/
 header {
   padding:10px;
-  background: skyblue;
+  /*background: skyblue;*/
 }
 
 #nav-drawer {
   position: relative;
-  display: none;
 }
 
 /*チェックボックス等は非表示に*/
 .nav-unshown {
   display:none;
 }
-span{
-	color: white;
-}
+
 /*アイコンのスペース*/
 #nav-open {
-	z-index: 90;
-	color: white;
-  background-color:white;
-	/*position: absolute;
-top: 10px;
-right: 40px;
-width: 30px;
-height: 30px;
-cursor: pointer;
-display: block;
-float: left;*/
-/*z-index: 2;*/
-  display: inline-block;
+  display: none;
   width: 30px;
   height: 22px;
   vertical-align: middle;
@@ -377,17 +406,13 @@ float: left;*/
   height: 3px;/*線の太さ*/
   width: 25px;/*長さ*/
   border-radius: 3px;
-  background: white;
+  background: #555;
   display: block;
   content: '';
   cursor: pointer;
-  color: white !important;
-  background-color:white;
 }
 #nav-open span:before {
   bottom: -8px;
-  color: white;
-  background-color:white;
 }
 #nav-open span:after {
   bottom: -16px;
@@ -433,4 +458,11 @@ float: left;*/
   -webkit-transform: translateX(0%);
   transform: translateX(0%);/*中身を表示（右へスライド）*/
   box-shadow: 6px 0 25px rgba(0,0,0,.15);
+}
+.swiper-slide{
+  height: 400px;
+}
+.swiper-slide img{
+  height: 400px;
+  width: 100%;
 }
