@@ -199,6 +199,9 @@ header>.inner{
 	vertical-align: middle;
 	color: white;
 }
+.pre-header h1{
+	float:left;
+}
 .pre-header ul{
   float: right;
 }
