@@ -269,7 +269,7 @@ header>.inner{
   position: relative;
   z-index: 0;
   overflow: hidden;/*ブラー効果でボヤけた部分を非表示*/
-  height: 600px;
+  height: auto;
   padding: 80px;
 }
 .body7:before{
