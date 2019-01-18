@@ -476,3 +476,15 @@ margin:0 auto;
 width:100%;
 text-align:center;
 }
+
+.circle{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin:0 auto;
+  width: 100%;
+  text-align: center;
+}
+.circle-in{
+  width: 30%;
+}
