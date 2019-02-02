@@ -498,7 +498,7 @@ text-align:center;
   width: 100%;
 }
 h5{
-	color:white;
+	color:white !important;
 	font-size:30px;
 	padding:30px;
 	margin: 0 auto;
