@@ -41,7 +41,6 @@ background-image:url("./img/darkflower.jpg");
 	top: 50%;
 	left: 35%;
 	color: white;
-	text-shadow: 3px 2px 3px #cccccc;
 }
 .inner{
 	max-width: 950px;
@@ -86,8 +85,7 @@ button{
 }
 h5{ 
 	color: white !important;
-	text-shadow: 2px 2px 2px #999999;
-	background: linear-gradient(transparent 40%, #cccccc 90%);
+	
 	margin: 0 auto;
 	width: 120px;
 	padding: 30px 0 10px;
@@ -95,8 +93,6 @@ h5{
 .btn{
 	color: white;
 	background-color:gray;
-	box-shadow: 4px 4px 4px #f8f8f8;
-	text-shadow: 2px 2px 2px #f6f6f6;
 }
 .btn:hover{
 	color: gray !important;
@@ -465,6 +461,16 @@ header {
   height: 400px;
 }
 .swiper-slide img{
-  height: 400px;
+  height: 100%;
   width: 100%;
+}
+
+.swiper-back{
+  background-image:url("./img/beach.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;/*ブラー効果でボヤけた部分を非表示*/
+  height: auto;
 }
