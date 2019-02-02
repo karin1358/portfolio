@@ -488,3 +488,8 @@ text-align:center;
 .circle-in{
   width: 30%;
 }
+
+#particles-js>.inner{
+  position: relative;
+  top: 50%;
+}
