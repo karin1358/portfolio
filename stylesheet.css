@@ -494,3 +494,11 @@ text-align:center;
 #particles-js h1{
 	left:0 !important;
 }
+h5{ 
+	color: white !important;
+/*	text-shadow: 2px 2px 2px #999999;
+	background: linear-gradient(transparent 40%, #cccccc 90%);*/
+	margin: 0 auto;
+	width: 120px;
+	padding: 30px 0 10px;
+}
