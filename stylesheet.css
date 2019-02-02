@@ -40,7 +40,6 @@ background-image:url("./img/darkflower.jpg");
 	position: relative;
 	top: 50%;
 	color: white;
-	text-shadow: 3px 2px 3px #cccccc;
 }
 .inner{
 	max-width: 950px;
