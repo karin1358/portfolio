@@ -39,7 +39,6 @@ background-image:url("./img/darkflower.jpg");
 #particles-js h1{
 	position: relative;
 	top: 50%;
-	left: 35%;
 	color: white;
 	text-shadow: 3px 2px 3px #cccccc;
 }
@@ -85,10 +84,9 @@ button{
 .table-responsive{
 	width: 80%;
 }
-h5{ 
+{ 
 	color: white !important;
-	text-shadow: 2px 2px 2px #999999;
-	background: linear-gradient(transparent 40%, #cccccc 90%);
+	
 	margin: 0 auto;
 	width: 120px;
 	padding: 30px 0 10px;
