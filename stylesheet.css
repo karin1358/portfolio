@@ -499,7 +499,7 @@ h5{
 	background: linear-gradient(transparent 40%, #cccccc 90%);*/
 	margin: 0 auto;
 	width: 120px;
-	padding: 30px 0 10px;
+	padding: 30px 0 10px !important;
 }
 .swiper-slide img{
   height: 100%;
